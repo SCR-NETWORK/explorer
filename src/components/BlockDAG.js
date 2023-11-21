@@ -14,6 +14,8 @@ const BlockDAGBox = () => {
     const [virtualDaaScore, setVirtualDaaScore] = useState("");
     const [hashrate, setHashrate] = useState("");
 
+    const hashrateResolution = 1e3; // KH/s
+
     const initBox = async () => {
         const dag_info = await getBlockdagInfo()
 
@@ -22,7 +24,7 @@ const BlockDAGBox = () => {
         setBlockCount(dag_info.blockCount)
         setHeaderCount(dag_info.headerCount)
         setVirtualDaaScore(dag_info.virtualDaaScore)
-        setHashrate((dag_info.difficulty * 2 / 1000000000000).toFixed(2))
+        setHashrate((dag_info.difficulty * 2 / hashrateResolution).toFixed(2))
     }
 
     useEffect(() => {
@@ -32,7 +34,7 @@ const BlockDAGBox = () => {
             setBlockCount(dag_info.blockCount)
             setHeaderCount(dag_info.headerCount)
             setVirtualDaaScore(dag_info.virtualDaaScore)
-            setHashrate((dag_info.difficulty * 2 / 1000000000000).toFixed(2))
+            setHashrate((dag_info.difficulty * 2 / hashrateResolution).toFixed(2))
         }, 60000)
         return (async () => {
             clearInterval(updateInterval)
@@ -95,10 +97,9 @@ const BlockDAGBox = () => {
                     <td className="cardBoxElement">
                         Network name
                     </td>
-                    <td id="networkName" className="pt-1 text-nowrap" style="text-transform: none">
-                        Pyrin Mainnet
+                    <td id="networkName" className="pt-1 text-nowrap" style={{textTransform: "none"}}>
+                        Pyrin {location.hostname.includes("testnet") ? "Testnet": "Mainnet"}
                     </td>
-                    <script>if (location.hostname.includes("testnet")) { networkName.innerText = "Pyrin Testnet" }</script>
                 </tr>
                 <tr>
                     <td className="cardBoxElement">
@@ -129,7 +130,7 @@ const BlockDAGBox = () => {
                         Hashrate
                     </td>
                     <td className="pt-1" id="hashrate">
-                        {(hashrate / 1000).toFixed(3)} PH/s
+                        {(hashrate / 1000).toFixed(3)} KH/s
                     </td>
                 </tr>
             </table>
