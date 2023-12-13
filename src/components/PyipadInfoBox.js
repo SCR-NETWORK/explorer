@@ -9,7 +9,7 @@ const PyipadInfoBox = () => {
     const [data, setData] = useState({});
 
     async function updateData() {
-        await fetch('https://api.pyrintestnet.network/info/pyipad')
+        await fetch('https://api.pyrin.network/info/pyrin')
             .then((response) => response.json())
             .then(d => setData(d))
             .catch(err => console.log("Error", err))

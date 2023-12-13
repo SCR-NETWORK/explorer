@@ -27,7 +27,7 @@ function Dashboard() {
   const [showLoadingModal, setShowLoadingModal] = useState(false)
 
   const [balance, setBalance] = useState(0);
-  const [address, setAddress] = useState("pyipad:");
+  const [address, setAddress] = useState("pyrin:");
 
   const search = (e) => {
     e.preventDefault();
@@ -50,7 +50,7 @@ function Dashboard() {
       })
     }
 
-    if (v.startsWith("pyipad:")) {
+    if (v.startsWith("pyrin:")) {
       navigate(`/addresses/${v}`)
     }
 

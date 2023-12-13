@@ -15,4 +15,4 @@ app.get("/*", (req, res) => {
         }
     });
 });
-server.listen(port, () => console.log(`Running on localhost:${port}`));
+server.listen(port, () => console.log(`Running on 0.0.0.0:${port}`));

@@ -10,18 +10,6 @@ body {
 }
 
 
-
-/* .fixed-top .navbar-title {
-  transform: scale(0);
-  transition: 0.5s;
-} */
-
-.fixed-top .navbar-title {
-  opacity: 1;
-  transition: opacity 0.5s ease-out 0.5s;
-}
-
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

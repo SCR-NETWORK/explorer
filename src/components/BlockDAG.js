@@ -13,6 +13,7 @@ const BlockDAGBox = () => {
     const [headerCount, setHeaderCount] = useState("");
     const [virtualDaaScore, setVirtualDaaScore] = useState("");
     const [hashrate, setHashrate] = useState("");
+    const [hashrateSize, setHashrateSize] = useState("");
 
     const hashrateResolution = 1e3; // KH/s
 
@@ -25,6 +26,7 @@ const BlockDAGBox = () => {
         setHeaderCount(dag_info.headerCount)
         setVirtualDaaScore(dag_info.virtualDaaScore)
         setHashrate((dag_info.difficulty * 2 / hashrateResolution).toFixed(2))
+        setHashrateSize(formatLeor(dag_info.difficulty * 2))
     }
 
     useEffect(() => {
@@ -35,6 +37,7 @@ const BlockDAGBox = () => {
             setHeaderCount(dag_info.headerCount)
             setVirtualDaaScore(dag_info.virtualDaaScore)
             setHashrate((dag_info.difficulty * 2 / hashrateResolution).toFixed(2))
+            setHashrateSize(formatLeor(dag_info.difficulty * 2))
         }, 60000)
         return (async () => {
             clearInterval(updateInterval)
@@ -89,6 +92,13 @@ const BlockDAGBox = () => {
         });
     }, [hashrate])
 
+    function formatLeor(leor) {
+        if (leor < 1e3) return leor + ' H/s';
+        else if (leor < 1e3 * 1e3) return (leor / 1e3).toFixed(2) + ' KH/s';
+        else if (leor < 1e3 * 1e3 * 1e3) return (leor / 1e3 / 1e3).toFixed(2) + ' MH/s';
+        else if (leor < 1e3 * 1e3 * 1e3 * 1e3) return (leor / 1e3 / 1e3 / 1e3).toFixed(2) + ' GH/s';
+        else return (leor / 1e3 / 1e3 / 1e3 / 1e3).toFixed(2) + ' TH/s';
+    }
 
     return <>
         <div className="cardBox mx-0">
@@ -130,7 +140,7 @@ const BlockDAGBox = () => {
                         Hashrate
                     </td>
                     <td className="pt-1" id="hashrate">
-                        {(hashrate / 1000).toFixed(3)} KH/s
+                        {hashrateSize}
                     </td>
                 </tr>
             </table>
