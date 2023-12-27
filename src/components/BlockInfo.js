@@ -134,9 +134,11 @@ const BlockInfo = () => {
                                     <Col className="blockinfo-key" lg={2}>Hash</Col>
                                     <Col className="blockinfo-value-mono" lg={10}>{blockInfo.verboseData.hash}
                                         <CopyButton text={blockInfo.verboseData.hash} />
-                                        <OverlayTrigger overlay={<Tooltip id="tooltip-kgi">Open in pyipad Graph Inspector</Tooltip>}>
+                                        <OverlayTrigger overlay={<Tooltip id="tooltip-kgi">Open in pyrin Graph Inspector</Tooltip>}>
                                             <span>
-                                                <BiNetworkChart className="ms-2 copy-symbol" size="20" onClick={() => { window.open(`https://kgi.pyipadd.net/?hash=${id}`, '_blank'); }} />
+                                                <BiNetworkChart className="ms-2 copy-symbol" size="20" onClick={() => {
+                                                    // window.open(`https://kgi.pyipadd.net/?hash=${id}`, '_blank');
+                                                }} />
                                             </span>
                                         </OverlayTrigger>
                                     </Col>

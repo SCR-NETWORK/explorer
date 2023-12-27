@@ -600,3 +600,6 @@ body {
 
 @import "./components/blockinfo.scss";
 @import "./components/addressinfo.scss";
+
+
+.form-control::-webkit-input-placeholder{color:#6c757d;opacity:1}.form-control::placeholder{color:#6c757d;opacity:1}

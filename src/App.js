@@ -171,7 +171,7 @@ function App() {
                 <Row><Col xs={12}>
                   <Form onSubmit={search} className="">
                     <InputGroup className="mt-4 mb-4 search-box-group">
-                      <Form.Control className="d-inline-block bg-light text-dark shadow-none" name="searchbox" id="search-box-high" type="text" placeholder="Search for pyipad:address or block" />
+                      <Form.Control className="d-inline-block bg-light text-dark shadow-none" name="searchbox" id="search-box-high" type="text" placeholder="Search for pyrin:address or block" />
                       <Button type="submit" className="shadow-none searchButton" variant="dark">search</Button>
                     </InputGroup>
                   </Form>

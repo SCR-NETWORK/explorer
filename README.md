@@ -1,6 +1,6 @@
-# pyipad EXPLORER
+# Pyrin Explorer
 
-This is the source code for pyrin Explorer [https://explorer.pyrin.network](https://explorer.pyrin.network) written in JS with React.JS library.
+This is the source code for Pyrin Explorer [https://explorer.pyrin.network](https://explorer.pyrin.network) written in JS with React.JS library.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

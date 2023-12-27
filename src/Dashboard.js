@@ -72,7 +72,7 @@ function Dashboard() {
             <Col xs={11}>
               <Form onSubmit={search}>
                 <InputGroup className="ms-md-5 mt-5 me-5 dashboard-search-box">
-                  <Form.Control className="text-light shadow-none" name="searchInput" type="text" placeholder="Search for pyipad:address or block" />
+                  <Form.Control className="text-light shadow-none" name="searchInput" type="text" placeholder="Search for pyrin:address or block" />
                   <Button type="submit" className="shadow-none searchButton">search</Button>
                 </InputGroup>
               </Form>
