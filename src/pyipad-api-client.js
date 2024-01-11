@@ -1,4 +1,4 @@
-const API_BASE = "https://api.pyrin.network/"
+const API_BASE = "https://api.SCR.network/"
 
 export async function getBlock(hash) {
     const res = await fetch(`${API_BASE}blocks/${hash}`, { headers: { 'Access-Control-Allow-Origin': '*' } })

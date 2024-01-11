@@ -8,7 +8,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { parsePayload } from "../bech32.js";
 import { numberWithCommas } from "../helper.js";
-import { getBlock, getTransactions } from '../pyipad-api-client.js';
+import { getBlock, getTransactions } from '../SCR_Network-api-client.js';
 import BlueScoreContext from "./BlueScoreContext.js";
 import CopyButton from "./CopyButton.js";
 import PriceContext from "./PriceContext.js";
@@ -134,10 +134,10 @@ const BlockInfo = () => {
                                     <Col className="blockinfo-key" lg={2}>Hash</Col>
                                     <Col className="blockinfo-value-mono" lg={10}>{blockInfo.verboseData.hash}
                                         <CopyButton text={blockInfo.verboseData.hash} />
-                                        <OverlayTrigger overlay={<Tooltip id="tooltip-kgi">Open in pyrin Graph Inspector</Tooltip>}>
+                                        <OverlayTrigger overlay={<Tooltip id="tooltip-kgi">Open in SCR Graph Inspector</Tooltip>}>
                                             <span>
                                                 <BiNetworkChart className="ms-2 copy-symbol" size="20" onClick={() => {
-                                                    // window.open(`https://kgi.pyipadd.net/?hash=${id}`, '_blank');
+                                                    // window.open(`https://kgi.SCR_Networkd.net/?hash=${id}`, '_blank');
                                                 }} />
                                             </span>
                                         </OverlayTrigger>
@@ -252,11 +252,11 @@ const BlockInfo = () => {
                                                                     </Link>
                                                                     <CopyButton text={getAddrFromOutputs(txInfo[txInput.previousOutpoint.transactionId]["outputs"], txInput.previousOutpoint.index || 0)} />
                                                                 </Col><Col className="block-utxo-amount-minus" xs={12} sm={4} md={2}>
-                                                                    -{numberWithCommas(getAmountFromOutputs(txInfo[txInput.previousOutpoint.transactionId]["outputs"], txInput.previousOutpoint.index || 0))}&nbsp;PYI
+                                                                    -{numberWithCommas(getAmountFromOutputs(txInfo[txInput.previousOutpoint.transactionId]["outputs"], txInput.previousOutpoint.index || 0))}&nbsp;SCR
                                                                 </Col></>
                                                                 :
                                                                 <><Col xs={12} sm={8} md={9} lg={9} xl={8} xxl={7} className="text-truncate">
-                                                                    <a className="blockinfo-link" href={`https://katnip.pyipadd.net/tx/${txInput.previousOutpoint.transactionId}`} target="_blank">
+                                                                    <a className="blockinfo-link" href={`https://katnip.SCR_Networkd.net/tx/${txInput.previousOutpoint.transactionId}`} target="_blank">
                                                                         TX #{txInput.previousOutpoint.index || 0} {txInput.previousOutpoint.transactionId}
                                                                     </a>
                                                                 </Col><Col className="me-auto" xs={12} sm={4} md={2}></Col>
@@ -278,14 +278,14 @@ const BlockInfo = () => {
                                                                 </Link>
 
                                                                 <CopyButton text={txOutput.verboseData.scriptPublicKeyAddress} />
-                                                            </Col><Col className="block-utxo-amount" xs={12} sm={4} md={3}>+{numberWithCommas(txOutput.amount / 100000000)}&nbsp;PYI</Col>
+                                                            </Col><Col className="block-utxo-amount" xs={12} sm={4} md={3}>+{numberWithCommas(txOutput.amount / 100000000)}&nbsp;SCR</Col>
                                                         </Row>)}
                                                     </Container>
                                                 </Col>
                                             </Col>
                                             <Col sm={5} md={4}>
                                                 <div className="utxo-header mt-3">tx amount</div>
-                                                <div className="utxo-value d-flex flex-row"><div className="utxo-amount">{(numberWithCommas(tx.outputs.reduce((a, b) => (a || 0) + parseInt(b.amount), 0) / 100000000))} PYI</div></div>
+                                                <div className="utxo-value d-flex flex-row"><div className="utxo-amount">{(numberWithCommas(tx.outputs.reduce((a, b) => (a || 0) + parseInt(b.amount), 0) / 100000000))} SCR</div></div>
                                             </Col>
                                             <Col sm={3} md={2}>
                                                 <div className="utxo-header mt-3">tx value</div>

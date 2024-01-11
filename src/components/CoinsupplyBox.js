@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import moment from 'moment';
 import { useContext, useEffect, useState } from "react";
 import { numberWithCommas } from "../helper";
-import { getCoinSupply, getHalving } from '../pyipad-api-client';
+import { getCoinSupply, getHalving } from '../SCR_Network-api-client';
 import PriceContext from "./PriceContext";
 
 
@@ -42,7 +42,7 @@ const CBox = () => {
     }, [])
 
     async function getBlockReward() {
-        await fetch('https://api.pyrin.network/info/blockreward')
+        await fetch('https://api.SCR.network/info/blockreward')
             .then((response) => response.json())
             .then(d => {
                 setBlockReward(d.blockreward.toFixed(2))
@@ -72,13 +72,13 @@ const CBox = () => {
                     <td className="cardBoxElement align-top">
                         Total</td>
                     <td className="">
-                        <div id="coins">{numberWithCommas(circCoins)} PYI
+                        <div id="coins">{numberWithCommas(circCoins)} SCR
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td className="cardBoxElement align-top">Max <span className="approx">(approx.)</span></td>
-                    <td className="pt-1">1,000,000,000 PYI</td>
+                    <td className="pt-1">1,000,000,000 SCR</td>
                 </tr>
                 <tr>
                     <td className="cardBoxElement align-top">Mined</td>
@@ -86,11 +86,11 @@ const CBox = () => {
                 </tr>
                 <tr>
                     <td className="cardBoxElement align-top">Block reward</td>
-                    <td className="pt-1">{blockReward} PYI</td>
+                    <td className="pt-1">{blockReward} SCR</td>
                 </tr>
                 <tr>
                     <td className="cardBoxElement align-top">Reward reduction</td>
-                    <td className="pt-1">{halvingDate}<br /><div className="text-end w-100 pe-3 pt-1" style={{ fontSize: "small" }}>to {halvingAmount} PYI</div></td>
+                    <td className="pt-1">{halvingDate}<br /><div className="text-end w-100 pe-3 pt-1" style={{ fontSize: "small" }}>to {halvingAmount} SCR</div></td>
                 </tr>
             </table>
         </div>

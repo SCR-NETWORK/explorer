@@ -5,11 +5,11 @@ import { FaMemory } from 'react-icons/fa';
 
 
 
-const PyipadInfoBox = () => {
+const SCRpadInfoBox = () => {
     const [data, setData] = useState({});
 
     async function updateData() {
-        await fetch('https://api.pyrin.network/info/pyrin')
+        await fetch('https://api.SCR.network/info/SCR')
             .then((response) => response.json())
             .then(d => setData(d))
             .catch(err => console.log("Error", err))
@@ -46,4 +46,4 @@ const PyipadInfoBox = () => {
 }
 
 
-export default PyipadInfoBox
+export default SCRpadInfoBox

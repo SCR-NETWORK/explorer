@@ -8,10 +8,10 @@ import BalanceModal from './components/BalanceModal';
 import BlockDAGBox from './components/BlockDAG';
 import BlockOverview from './components/BlockOverview';
 import CoinsupplyBox from './components/CoinsupplyBox';
-import PyipadInfoBox from './components/PyipadInfoBox';
+import SCRpadInfoBox from './components/SCRpadInfoBox';
 import MarketDataBox from './components/MarketDataBox';
 import TxOverview from './components/TxOverview';
-import { getBlock } from './pyipad-api-client';
+import { getBlock } from './SCR_Network-api-client';
 
 
 
@@ -27,7 +27,7 @@ function Dashboard() {
   const [showLoadingModal, setShowLoadingModal] = useState(false)
 
   const [balance, setBalance] = useState(0);
-  const [address, setAddress] = useState("pyrin:");
+  const [address, setAddress] = useState("SCR:");
 
   const search = (e) => {
     e.preventDefault();
@@ -50,7 +50,7 @@ function Dashboard() {
       })
     }
 
-    if (v.startsWith("pyrin:")) {
+    if (v.startsWith("SCR:")) {
       navigate(`/addresses/${v}`)
     }
 
@@ -72,7 +72,7 @@ function Dashboard() {
             <Col xs={11}>
               <Form onSubmit={search}>
                 <InputGroup className="ms-md-5 mt-5 me-5 dashboard-search-box">
-                  <Form.Control className="text-light shadow-none" name="searchInput" type="text" placeholder="Search for pyrin:address or block" />
+                  <Form.Control className="text-light shadow-none" name="searchInput" type="text" placeholder="Search for SCR:address or block" />
                   <Button type="submit" className="shadow-none searchButton">search</Button>
                 </InputGroup>
               </Form>
@@ -88,7 +88,7 @@ function Dashboard() {
               <CoinsupplyBox />
             </div></Col>
             <Col sm={12} md={6} xl={3}><div className="infoBox"><BlockDAGBox /></div></Col>
-            <Col sm={12} md={6} xl={3}><div className="infoBox"><PyipadInfoBox /></div></Col>
+            <Col sm={12} md={6} xl={3}><div className="infoBox"><SCRpadInfoBox /></div></Col>
             <Col sm={12} md={6} xl={3}><div className="infoBox"><MarketDataBox /></div></Col>
           </Row>
         </Container>

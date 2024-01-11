@@ -1,7 +1,7 @@
 import { faDiagramProject } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from "react";
-import { getBlockdagInfo } from '../pyipad-api-client';
+import { getBlockdagInfo } from '../SCR_Network-api-client';
 
 
 const BlockDAGBox = () => {
@@ -108,7 +108,7 @@ const BlockDAGBox = () => {
                         Network name
                     </td>
                     <td id="networkName" className="pt-1 text-nowrap" style={{textTransform: "none"}}>
-                        Pyrin {location.hostname.includes("testnet") ? "Testnet": "Mainnet"}
+                        SCR {location.hostname.includes("testnet") ? "Testnet": "Mainnet"}
                     </td>
                 </tr>
                 <tr>
